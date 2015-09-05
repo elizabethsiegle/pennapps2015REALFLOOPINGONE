@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignuppageViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class SignuppageViewController: UIViewController {
 
     @IBOutlet weak var usernametext: UITextField!
     
@@ -16,11 +16,11 @@ class SignuppageViewController: UIViewController,UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var confirmpassword: UITextField!
     
-    @IBOutlet weak var citytext: UITextField!
-    
-    @IBOutlet weak var majortext: UITextField!
-    
-    @IBOutlet weak var intereststext: UITextField!
+//    @IBOutlet weak var citytext: UITextField!
+//    
+//    @IBOutlet weak var majortext: UITextField!
+//    
+//    @IBOutlet weak var intereststext: UITextField!
     
     @IBAction func signupclicked(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion:nil)
@@ -137,99 +137,12 @@ class SignuppageViewController: UIViewController,UIPickerViewDelegate, UIPickerV
     
 //    @IBAction func alreadyhaveaccountclicked(sender: UIButton) {
 //    }
-
-    @IBOutlet weak var cityPicker: UIPickerView! //= UIPickerView()
-    let cityPickerValues = ["San Francisco", "Seattle", "San Antonio", "New York", "Ann Arbor"]
-    
-    
-    @IBOutlet weak var majorPicker: UIPickerView!
-    let majorPickerValues = ["Computer Science", "Biology", "Math", "History", "English"]
    
        override func viewDidLoad() {
         super.viewDidLoad()
-//        cityPicker.hidden = true;
-//        citytext.text = cityPickerValues[0]
-        //self.cityPicker.delegate = self;
-        cityPicker.dataSource = self
-        cityPicker.delegate = self
     }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 5
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return cityPickerValues.count
-    }
-    
-    //MARK: Delegates
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return cityPickerValues[row]
-        
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        citytext.text = cityPickerValues[row]
-        cityPicker.hidden = true
-    }
-    
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        cityPicker.hidden = false
-        return false
-    }
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let titleData = cityPickerValues[row]
-        var myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 11.0)!,NSForegroundColorAttributeName:UIColor.blueColor()])
-        return myTitle
-    }
-    
-    
-    //size the components of the UIPickerView
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 30.0
-    }
-    
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return 200
-    }
-    
 
-
-//        self.cityPicker.delegate = self;
-//        self.cityPicker.dataSource = self;
-//        self.majorPicker.delegate = self;
-//        self.majorPicker.dataSource = self;
-//
-//    }
-//        func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-//            return 1
-//        }
-//        
-//        func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//            return cityPickerValues.count
-//        }
-//        
-//        func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-//            return cityPickerValues[row]
-//           }
-//    
-//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-//    {
-//        citytext.text = cityPickerValues[row]
-//        cityPicker.hidden = true;
-//    }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.toolbarHidden = false
-    }
-    
-    func updateTextField(sender: UITextField) {
-        cityPicker.hidden = false
-    }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -244,9 +157,9 @@ class SignuppageViewController: UIViewController,UIPickerViewDelegate, UIPickerV
         usernametext.resignFirstResponder()
         passwordtext.resignFirstResponder()
         confirmpassword.resignFirstResponder()
-        citytext.resignFirstResponder()
-        majortext.resignFirstResponder()
-        intereststext.resignFirstResponder()
+//        citytext.resignFirstResponder()
+//        majortext.resignFirstResponder()
+//        intereststext.resignFirstResponder()
     }
     
 
