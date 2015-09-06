@@ -11,10 +11,28 @@ import UIKit
 class messageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var messageTableView: UITableView!
 
+    @IBAction func sendButtonClicked(sender: AnyObject) {
+        
+        firstMessage1.text = textMessage.text
+        textMessage.text = ""
+        firstMessage1.hidden = false
+        let delay = 4.5 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.firstMessage.hidden=false
+            self.firstMessage.text="Is it home life?"
+        }
+    }
+    @IBOutlet weak var firstMessage1: UILabel!
+    @IBOutlet weak var firstMessage: UILabel!
      var messagesArray:[String] = ["Message 1", "Message 2", "Message 3"]
+    
+    @IBOutlet weak var textMessage: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstMessage1.hidden = true
+        firstMessage.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     
